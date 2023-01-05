@@ -23,3 +23,7 @@ This requirement will satisfy part of the company’s corporate security policie
 systems. We will eventually have a CI pipeline that initially pulls public docker images and helm charts from the internet, 
 store in artifactory and scan the artifacts for security vulnerabilities before deploying into the corporate infrastructure. Any found 
 vulnerabilities will immediately trigger an action to quarantine such artifacts.
+
+1. Search for an official helm chart for Artifactory on [Artifact Hub](https://artifacthub.io/)
+
+![](helm_artifactory.png)
