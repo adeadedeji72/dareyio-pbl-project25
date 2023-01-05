@@ -79,3 +79,14 @@ helm upgrade --install artifactory jfrog/artifactory --version 107.49.3 -n tools
   
   4. Copy the loadbalancer URL and use on your browser
   ![](jfrog_page.png)
+  
+  5. Default username: **admin**, dafult password: **password**
+  ![](artifactory_loggedin.png)
+  
+**How the Nginx URL for Artifactory is configured in Kubernetes**
+Helm uses the values.yaml file to set every single configuration that the chart has the capability to configure. THe best place to get started with an off the shelve chart from artifacthub.io is to get familiar with the **DEFAULT VALUES**
+- click on the **DEFAULT VALUES** section on Artifact hub
+![](artifactory_default_values.png)
+
+- Search for **nginx.service** and select **nginx.service.type**
+![](nginx_service_type.png)
