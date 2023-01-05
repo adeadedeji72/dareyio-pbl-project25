@@ -30,3 +30,26 @@ vulnerabilities will immediately trigger an action to quarantine such artifacts.
 
 2. Review the Artifactory page
 ![](artifactory_page.png)
+
+3. Artifactory helm installation instruction
+![](arti_install_instruction.png)
+
+4. Add the jfrog remote repository on your laptop/computer
+~~~
+helm repo add jfrog https://charts.jfrog.io
+~~~
+
+5. Create a namespace called tools where all the tools for DevOps will be deployed. (In previous project, you installed Jenkins in the default namespace. You should uninstall Jenkins there and install in the new namespace)
+~~~
+kubectl create ns tools
+~~~
+
+6. Update the helm repo index on your laptop/computer
+~~~
+helm repo update
+~~~
+
+7. Install artifactory
+~~~
+helm upgrade --install artifactory jfrog/artifactory --version 107.49.3 -n tools
+~~~
