@@ -90,3 +90,15 @@ Helm uses the values.yaml file to set every single configuration that the chart 
 
 - Search for **nginx.service** and select **nginx.service.type**
 ![](nginx_service_type.png)
+
+- To work directly with the values.yaml file, you can download the file locally by clicking on the download icon.
+
+**Is the Load Balancer Service type the Ideal configuration option to use in the Real World?**
+
+Setting the service type to Load Balancer is the easiest way to get started with exposing applications running in kubernetes externally. But provissioning load balancers for each application can become very expensive over time, and more difficult to manage. Especially when tens or even hundreds of applications are deployed.
+
+The best approach is to use [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) instead. But to do that, we will have to deploy an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+
+A huge benefit of using the ingress controller is that we will be able to use a single load balancer for different applications we deploy. Therefore, Artifactory and any other tools can reuse the same load balancer. Which reduces cloud cost, and overhead of managing multiple load balancers. more on that later.
+
+For now, we will leave artifactory, move on to the next phase of configuration (Ingress, DNS(Route53) and Cert Manager), and then return to Artifactory to complete the setup so that it can serve as a private docker registry and repository for private helm charts.
