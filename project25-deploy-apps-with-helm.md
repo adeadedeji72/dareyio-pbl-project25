@@ -53,3 +53,29 @@ helm repo update
 ~~~
 helm upgrade --install artifactory jfrog/artifactory --version 107.49.3 -n tools
 ~~~
+**Output:**
+~~~
+
+~~~
+
+**Getting the Artifactory URL**
+  1. The artifactory helm chart comes bundled with the Artifactory software, a PostgreSQL database and an Nginx proxy which it uses to configure routes to the different capabilities of Artifactory. Getting the pods after some time, you should see something like the below.
+  ~~~
+  kubectl get pods -n tools
+  ~~~
+  **Output:**
+  
+  2. Each of the deployed application have their respective services. This is how you will be able to reach either of them.
+  ~~~
+  kubectl get svc -n tools
+  ~~~
+  **Output:**
+  
+  3. Notice that, the Nginx Proxy has been configured to use the service type of LoadBalancer. Therefore, to reach Artifactory, we will need to go through the Nginx proxy’s service. Which happens to be a load balancer created in the cloud provider. Run the kubectl command to retrieve the Load Balancer URL.
+  ~~~
+  kubectl get svc artifactory-artifactory-nginx -n tools
+  ~~~
+  **Output**
+  
+  4. Copy the loadbalancer URL and use on your browser
+  ![](jfrog_page.png)
