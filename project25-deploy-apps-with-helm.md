@@ -27,3 +27,6 @@ vulnerabilities will immediately trigger an action to quarantine such artifacts.
 1. Search for an official helm chart for Artifactory on [Artifact Hub](https://artifacthub.io/)
 
 ![](helm_artifactory.png)
+
+2. Review the Artifactory page
+![](artifactory_page.png)
